@@ -41,11 +41,18 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>ru.smak</groupId>
+            <groupId>ru.smak.ui.painting</groupId>
             <artifactId>plane</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/lib/Plane.jar</systemPath>
+            <systemPath>${project.basedir}/lib/plane.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>ru.smak.ui</groupId>
+            <artifactId>graphics_panel</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/graphics_panel.jar</systemPath>
         </dependency>
     </dependencies>
 

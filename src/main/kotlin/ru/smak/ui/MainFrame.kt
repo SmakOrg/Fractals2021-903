@@ -3,14 +3,12 @@ package ru.smak.ui
 import ru.smak.math.fractals.Mandelbrot
 import ru.smak.ui.painting.CartesianPlane
 import ru.smak.ui.painting.fractals.FractalPainter
-import ru.smak.ui.painting.fractals.grayFractal
-import ru.smak.ui.painting.fractals.pinkFractal
+import ru.smak.ui.painting.fractals.colorizers
 import java.awt.Color
 import java.awt.Dimension
-import java.awt.event.ComponentAdapter
-import java.awt.event.ComponentEvent
 import javax.swing.GroupLayout
 import javax.swing.JFrame
+import kotlin.random.Random
 
 class MainFrame : JFrame() {
 
@@ -19,24 +17,15 @@ class MainFrame : JFrame() {
     init{
         defaultCloseOperation = EXIT_ON_CLOSE
         minimumSize = Dimension(600, 400)
-        val plane = CartesianPlane(-2.0, 1.0, -1.0, 1.0)
+        val painter = FractalPainter(
+            Mandelbrot(),
+            CartesianPlane(-2.0, 1.0, -1.0, 1.0),
+            colorizers[Random.nextInt(colorizers.size)])
 
-        val colorizers = listOf(::grayFractal, ::pinkFractal)
-
-        fractalPanel = GraphicsPanel(
-            listOf(
-                FractalPainter(Mandelbrot, plane, colorizers[0])
-            )
-        ).apply {
+        fractalPanel = GraphicsPanel(painter).apply {
             background = Color.WHITE
-            addComponentListener(object: ComponentAdapter(){
-                override fun componentResized(e: ComponentEvent?) {
-                    plane.pixelSize = size
-                    repaint()
-                }
-            })
         }
-
+        
         layout = GroupLayout(contentPane).apply {
             setHorizontalGroup(
                 createSequentialGroup()
@@ -51,7 +40,5 @@ class MainFrame : JFrame() {
                     .addGap(4)
             )
         }
-        pack()
-        plane.pixelSize = fractalPanel.size
     }
 }

@@ -2,8 +2,21 @@ package ru.smak.ui.painting.fractals
 
 import java.awt.Color
 
-fun pinkFractal(x: Float): Color {
-    if (x == 1F) return Color.BLACK
+val colorizers = mutableListOf<(Double)->Color>(
+    ::bwFractal,
+    ::pinkFractal,
+    ::yellowFractal,
+)
+
+fun bwFractal(x: Double) =
+    Color(
+        (1-x.coerceIn(0.0, 1.0)).toFloat(),
+        (1-x.coerceIn(0.0, 1.0)).toFloat(),
+        (1-x.coerceIn(0.0, 1.0)).toFloat()
+    )
+
+fun pinkFractal(x: Double): Color {
+    if (x == 1.0) return Color.BLACK
     return Color(
         Math.abs(Math.cos(Math.log(12.0 * (1.0 - x)))).toFloat(),
         Math.abs(Math.sin(6.0 * (1.0 - x))).toFloat(),
@@ -11,4 +24,11 @@ fun pinkFractal(x: Float): Color {
     )
 }
 
-fun grayFractal(x: Float) = Color(1-x, 1-x, 1-x)
+fun yellowFractal(x: Double): Color {
+    if (x == 1.0) return Color.BLACK
+    return Color(
+        Math.abs(Math.cos(6*x)).toFloat(),
+        Math.abs(Math.cos(12*x)).toFloat(),
+        Math.abs(Math.sin(7-7*x)).toFloat()
+    )
+}

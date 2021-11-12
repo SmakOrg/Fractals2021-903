@@ -6,6 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="851b7efd-dd0c-4374-9f83-0fac9e3f5b35" name="Changes" comment="Initial commit">
       <changelist_data name="Sergey Makletsov" email="smaklets@kpfu.ru" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Plane.jar" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Plane.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ru/smak/math/fractals/AlgebraicFractal.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ru/smak/math/fractals/AlgebraicFractal.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ru/smak/math/fractals/Mandelbrot.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ru/smak/math/fractals/Mandelbrot.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ru/smak/ui/GraphicsPanel.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ru/smak/ui/MainFrame.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ru/smak/ui/MainFrame.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ru/smak/ui/painting/Painter.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ru/smak/ui/painting/fractals/FractalPainter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ru/smak/ui/painting/fractals/FractalPainter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ru/smak/ui/painting/fractals/colorizers.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ru/smak/ui/painting/fractals/colorizers.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +49,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="project.structure.last.edited" value="Problems" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.24942529" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
@@ -77,7 +88,15 @@
       <workItem from="1635493469880" duration="9509000" />
       <workItem from="1635573287606" duration="76000" />
       <workItem from="1635761573416" duration="615000" />
-      <workItem from="1636103165033" duration="4739000" />
+      <workItem from="1636103165033" duration="5552000" />
+      <workItem from="1636222178025" duration="606000" />
+      <workItem from="1636274308663" duration="3131000" />
+      <workItem from="1636282457030" duration="623000" />
+      <workItem from="1636360074020" duration="53000" />
+      <workItem from="1636366750854" duration="494000" />
+      <workItem from="1636441083342" duration="5007000" />
+      <workItem from="1636451295511" duration="60000" />
+      <workItem from="1636701772574" duration="1591000" />
     </task>
     <servers />
   </component>
@@ -94,11 +113,14 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>
       <path value="$PROJECT_DIR$/Fractals-903-2021" />
     </ignored-roots>
+    <MESSAGE value="Initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">

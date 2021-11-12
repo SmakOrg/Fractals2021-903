@@ -5,13 +5,20 @@ import ru.smak.math.fractals.AlgebraicFractal
 import ru.smak.ui.painting.CartesianPlane
 import ru.smak.ui.painting.Painter
 import java.awt.Color
+import java.awt.Dimension
 import java.awt.Graphics
 
 class FractalPainter(
-    var fractal: AlgebraicFractal,
-    var plane: CartesianPlane,
-    var colorFunction: (Float)->Color
+    val fractal: AlgebraicFractal,
+    val plane: CartesianPlane,
+    var colorFunction: (Double)->Color
 ) : Painter {
+
+    override var size: Dimension
+        get() = plane.pixelSize
+        set(value) {
+            plane.pixelSize = value
+        }
 
     override fun paint(g: Graphics) {
         with(g){
