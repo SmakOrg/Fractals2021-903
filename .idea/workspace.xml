@@ -72,6 +72,7 @@
       <list>
         <item itemvalue="Kotlin.MainKt" />
         <item itemvalue="Kotlin.MainKt" />
+        <item itemvalue="Kotlin.MainKt" />
       </list>
     </recent_temporary>
   </component>
@@ -96,6 +97,8 @@
       <workItem from="1636451295511" duration="60000" />
       <workItem from="1636701772574" duration="1591000" />
       <workItem from="1636704238097" duration="4434000" />
+      <workItem from="1637336980019" duration="4174000" />
+      <workItem from="1637341203175" duration="1126000" />
     </task>
     <task id="LOCAL-00001" summary="ColorizedFractal">
       <created>1636704261066</created>
@@ -111,7 +114,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637316297851</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Распараллеливание построения фрайктала на а отдельных потоках - закончено на паре">
+      <created>1637337017021</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1637337017021</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,7 +146,8 @@
     <MESSAGE value="Initial commit" />
     <MESSAGE value="ColorizedFractal" />
     <MESSAGE value="Распараллеливание построения фрайктала на а отдельных потоках" />
-    <option name="LAST_COMMIT_MESSAGE" value="Распараллеливание построения фрайктала на а отдельных потоках" />
+    <MESSAGE value="Распараллеливание построения фрайктала на а отдельных потоках - закончено на паре" />
+    <option name="LAST_COMMIT_MESSAGE" value="Распараллеливание построения фрайктала на а отдельных потоках - закончено на паре" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -147,8 +158,28 @@
           <line>54</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/ru/smak/ui/painting/fractals/FractalPainter.kt</url>
+          <line>37</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/ru/smak/ui/painting/fractals/FractalPainter.kt</url>
+          <line>65</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/ru/smak/ui/painting/fractals/FractalPainter.kt</url>
+          <line>67</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="JetRunConfigurationType">
+        <watch expression="second.get()" language="kotlin" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
