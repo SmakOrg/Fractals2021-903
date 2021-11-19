@@ -25,6 +25,17 @@ class MainFrame : JFrame() {
 
         fractalPanel = SelectablePanel(painter).apply {
             background = Color.WHITE
+            addSelectListener{
+                with (painter.plane){
+                    val xMin = xScr2Crt(it.x)
+                    val yMin = yScr2Crt(it.y)
+                    val xMax = xScr2Crt(it.x + it.width)
+                    val yMax = yScr2Crt(it.y + it.height)
+                    xSegment = Pair(xMin, xMax)
+                    ySegment = Pair(yMin, yMax)
+                }
+                repaint()
+            }
         }
         
         layout = GroupLayout(contentPane).apply {
@@ -42,4 +53,6 @@ class MainFrame : JFrame() {
             )
         }
     }
+
+    //fun onSelectArea(r: Rectangle)
 }

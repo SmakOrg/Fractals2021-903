@@ -3,6 +3,7 @@ package ru.smak.ui.painting
 import ru.smak.ui.GraphicsPanel
 import java.awt.Color
 import java.awt.Point
+import java.awt.Rectangle
 import java.awt.event.MouseAdapter
 import java.awt.event.MouseEvent
 import java.awt.event.MouseMotionAdapter
@@ -11,6 +12,16 @@ class SelectablePanel(vararg painters: Painter) : GraphicsPanel(*painters){
 
     private var pt1: Point? = null
     private var pt2: Point? = null
+
+    private val selectListener: MutableList<(Rectangle)->Unit> = mutableListOf()
+
+    fun addSelectListener(l: (Rectangle)->Unit){
+        selectListener.add(l)
+    }
+
+    fun removeSelectListener(l: (Rectangle)->Unit){
+        selectListener.remove(l)
+    }
 
     init {
         addMouseListener(object : MouseAdapter(){
@@ -25,9 +36,14 @@ class SelectablePanel(vararg painters: Painter) : GraphicsPanel(*painters){
             }
 
             override fun mouseReleased(e: MouseEvent?) {
+                pt1?.let { p1 ->
+                    pt2?.let { p2->
+                        val r: Rectangle = Rectangle(p1.x, p1.y, p2.x - p1.x, p2.y - p1.y)
+                        selectListener.forEach { it(r) }
+                    }
+                }
                 pt1 = null
                 pt2 = null
-                graphics.setPaintMode()
             }
 
         })
