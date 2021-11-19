@@ -7,6 +7,8 @@ import ru.smak.ui.painting.Painter
 import java.awt.Color
 import java.awt.Dimension
 import java.awt.Graphics
+import java.awt.image.BufferedImage
+import kotlin.concurrent.thread
 
 class FractalPainter(
     val fractal: AlgebraicFractal,
@@ -21,17 +23,34 @@ class FractalPainter(
         }
 
     override fun paint(g: Graphics) {
-        with(g){
-            with(plane){
-                for (i in 0..width){
-                    for (j in 0..height){
-                        color = colorFunction(fractal.isInSet(complex(
-                            xScr2Crt(i),
-                            yScr2Crt(j)
-                        )))
-                        fillRect(i, j, 1, 1)
+        val threadCount = 16
+        with(plane){
+            List<Thread>(threadCount) { tNum ->
+                thread {
+                    val w = width / threadCount
+                    val start = tNum * w
+                    val end   = (tNum + 1) * w - 1 + if (tNum == threadCount-1) width % threadCount else 0
+                    val img = BufferedImage(end-start+1, height, BufferedImage.TYPE_INT_RGB)
+                    for (i in start..end) {
+                        for (j in 0..height) {
+                            with (img.graphics)
+                            {
+                                color = colorFunction(fractal.isInSet(
+                                    complex(
+                                        xScr2Crt(i),
+                                        yScr2Crt(j)
+                                    )
+                                ))
+                                fillRect(i - start, j, 1, 1)
+                            }
+                        }
+                    }
+                    synchronized(g){
+                        g.drawImage(img, start, 0, null)
                     }
                 }
+            }.forEach {
+                it.join()
             }
         }
     }

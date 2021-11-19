@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="851b7efd-dd0c-4374-9f83-0fac9e3f5b35" name="Changes" comment="Выбор части фрактала (версия без двойной буферизации)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ru/smak/ui/MainFrame.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ru/smak/ui/MainFrame.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/ru/smak/ui/painting/SelectablePanel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ru/smak/ui/painting/SelectablePanel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ru/smak/ui/painting/fractals/FractalPainter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ru/smak/ui/painting/fractals/FractalPainter.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +31,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="SelectingParts" />
+        <entry key="$PROJECT_DIR$" value="fs_scaling" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -137,7 +137,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/kotlin/ru/smak/ui/painting/SelectablePanel.kt</url>
-          <line>54</line>
+          <line>55</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
