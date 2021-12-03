@@ -10,8 +10,6 @@ import java.awt.Graphics
 import java.awt.image.BufferedImage
 import java.util.concurrent.Callable
 import java.util.concurrent.Executors
-import java.util.concurrent.Future
-import java.util.concurrent.LinkedBlockingQueue
 
 class FractalPainter(
     val fractal: AlgebraicFractal,
@@ -32,7 +30,6 @@ class FractalPainter(
         val t1 = System.currentTimeMillis()
         with(plane){
             if (width <= 0 || height <= 0) return
-            val q = LinkedBlockingQueue<Pair<Int, Future<BufferedImage>>>()
             if (!(fracService.isShutdown || fracService.isTerminated)) {
                 fracService.shutdown()
                 fracService = Executors.newFixedThreadPool(threadCount)
