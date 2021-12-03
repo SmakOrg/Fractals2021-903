@@ -24,54 +24,42 @@ class FractalPainter(
         }
 
     private val threadCount = 16
+    private val taskPerThreadCount = 5
     private var fracService = Executors.newFixedThreadPool(threadCount)
 
     override fun paint(g: Graphics) {
-        val t1 = System.currentTimeMillis()
         with(plane){
             if (width <= 0 || height <= 0) return
             if (!(fracService.isShutdown || fracService.isTerminated)) {
                 fracService.shutdown()
                 fracService = Executors.newFixedThreadPool(threadCount)
             }
-            val subWidth = 10
-            for (i in 0 until (width / subWidth)){
-                q.put(
-                    Pair(
-                        i * subWidth,
-                        fracService.submit(Callable {
-                            val wsz = subWidth + if (i+1 == width/subWidth) width % subWidth else 0
-                            val img = BufferedImage(wsz, height, BufferedImage.TYPE_INT_RGB)
-                            for (k in 0 until wsz) {
-                                for (j in 0..height) {
-                                    with (img.graphics) {
-                                        color = colorFunction(
-                                            fractal.isInSet(
-                                                complex(
-                                                    xScr2Crt(i*wsz+k),
-                                                    yScr2Crt(j)
-                                                )
-                                            )
+            val cnt = width / (threadCount * taskPerThreadCount)
+            val wsz = width / cnt
+            List(cnt){ i ->
+                fracService.submit(Callable {
+                    val w = wsz + if (i + 1 == cnt) width % cnt else 0
+                    val img = BufferedImage(w, height, BufferedImage.TYPE_INT_RGB)
+                    for (k in 0 until w) {
+                        for (j in 0..height) {
+                            with (img.graphics) {
+                                color = colorFunction(
+                                    fractal.isInSet(
+                                        complex(
+                                            xScr2Crt(i * w + k),
+                                            yScr2Crt(j)
                                         )
-                                        fillRect(k, j, 1, 1)
-                                    }
-                                }
+                                    )
+                                )
+                                fillRect(k, j, 1, 1)
                             }
-                            img
-                        })
-                    )
-                )
-            }
-            try {
-                for (i in 0 until (width / subWidth)) {
-                    q.take().run {
-                        g.drawImage(second.get(), first, 0, null)
+                        }
                     }
-                }
-            } catch (ex: InterruptedException){
+                    img
+                })
+            }.forEachIndexed { i, v ->
+                g.drawImage(v.get(), i * wsz, 0, null)
             }
         }
-        val t2 = System.currentTimeMillis()
-        println(t2 - t1)
     }
 }
